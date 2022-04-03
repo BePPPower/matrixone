@@ -12,37 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package transformer
+package bitxor
 
-const (
-	Sum = iota
-	Avg
-	Max
-	Min
-	Count
-	StarCount
-	ApproxCountDistinct
-	Variance
-	BitXor
-)
+import "github.com/matrixorigin/matrixone/pkg/container/types"
 
-var TransformerNames = [...]string{
-	Sum:                 "sum",
-	Avg:                 "avg",
-	Max:                 "max",
-	Min:                 "min",
-	Count:               "count",
-	StarCount:           "starcount",
-	ApproxCountDistinct: "approx_count_distinct",
-	Variance:            "var",
-	BitXor:              "bit_xor",
+type BitXorRing struct {
+	Typ        types.Type
+	Data       []byte
+	Values     []uint64
+	NullCounts []int64
 }
 
-var TransformerNamesMap map[string]int
-
-type Transformer struct {
-	Op    int
-	Ref   int
-	Name  string
-	Alias string
+type IntRing struct {
+	Typ        types.Type
+	Data       []byte
+	Values     []int64
+	NullCounts []int64
 }

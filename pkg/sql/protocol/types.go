@@ -69,6 +69,7 @@ const (
 	SumFloatRing
 	// Variance
 	VarianceRing
+	BitXorRing
 )
 
 // colexec
